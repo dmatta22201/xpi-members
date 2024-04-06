@@ -14,12 +14,23 @@
    <link rel="preconnect" href="https://fonts.bunny.net">
    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
+   <!-- Contains various iconography as text. -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
    <!-- Styles -->
    @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class='font-Inter bg-xpi-white'>
+   @if (isset($suppressNav))
+      <x-common.header suppressNav />
+   @else
+      <x-common.header />
+   @endif
    {{ $slot }}
+   <x-common.footer />
 </body>
 
 </html>
