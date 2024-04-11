@@ -7,6 +7,8 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UserCreateRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Permissions;
+use Illuminate\Support\Facades\Log;
 
 class NewMemberController extends Controller
 {
@@ -33,6 +35,7 @@ class NewMemberController extends Controller
       $user->email = $request->email;
       $user->birthdate = $request->birthdate;
       $user->password = Hash::make($request->password);
+      $user->role = Permissions::createRoleValue([]);
 
       $user->save();
 
